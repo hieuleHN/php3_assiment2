@@ -24,7 +24,15 @@ Route::get('/', function () {
 
     return view("home",compact("theloai","product"));
 });
+Route::get('/home/{id}', function ($id) {
+    $theloai=DB::table('categories')->get();
 
+    $product=DB::table("books")
+    ->join("categories","books.Category_id","=","categories.id")->select("books.*","categories.name")
+    ->where("Category_id","=",$id)->get();
+
+    return view("home",compact("theloai","product"));
+})->name("home");
 
 Route::get("/layout",function(){
     $theloai=DB::table('categories')->get();

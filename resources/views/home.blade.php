@@ -26,7 +26,7 @@
         @foreach ($product as $book)
             <div class="khung">
                 <img src="{{$book->thumbnail}}" alt="">
-                <h3>{{$book->title}}</h3>
+                <h3><a href="{{route('book-detail', ['id' => $book->id])}}">{{$book->title}}</a></h3>
                 <p style="color: red">{{$book->Price}}$</p>
                 <p>{{$book->name}}</p>
             </div>

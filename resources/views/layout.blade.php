@@ -119,7 +119,7 @@
             <div class="left-box">@yield("content")</div>
         <div class="right-box"><h2 style="color: black">danh sách</h2>
             @foreach ($theloai as $book)
-                <hr><a href="{{route('book-detail', ['id' => $book->id])}}" style="color: #252222">{{$book->name}}</a>
+                <hr><a href="{{route('home', ['id' => $book->id])}}" style="color: #252222">{{$book->name}}</a>
             @endforeach</div>
         </div>
     </article>
