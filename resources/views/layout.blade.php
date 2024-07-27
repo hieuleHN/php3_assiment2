@@ -37,13 +37,20 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 150px;
             }
             .list-item {
-            margin-bottom: 10px;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #706f6f;
             border-radius: 3px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            }
+            .list-item:hover{
+            background-color: rgb(137, 5, 5);
+            color: #fff;
+            font-size: 16px;
             }
 
             /* CSS cho trang chi tiết */
@@ -65,6 +72,18 @@
             .khung{
                 padding: 10px;
                 margin-top: 10px;
+                position: relative;
+            }
+            .corner-div {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: rgb(246, 25, 25);
+                padding: 3px;
+            }
+            .corner-div a{
+                color: white;
+                text-decoration: none;
             }
 
             

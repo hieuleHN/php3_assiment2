@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategorySeeder extends Seeder
+class GeneSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +15,11 @@ class CategorySeeder extends Seeder
     {
 
 
-            DB::table('categories')->insert([
-                ['name'=>"duy"],
-                ['name'=>"hưng"],
-                ['name'=>"dần"],
-                ['name'=>"tôn"]
+            DB::table('genes')->insert([
+                ['name'=>"Kinh dị"],
+                ['name'=>"Tình cảm"],
+                ['name'=>"Hài hước"],
+                ['name'=>"Viễn tưởng"]
             ]);
     }
 }

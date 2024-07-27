@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\MovieController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -15,33 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $theloai=DB::table('categories')->get();
 
-    $product=DB::table("books")
-    ->join("categories","books.Category_id","=","categories.id")->select("books.*","categories.name")
-    ->get();
 
-    return view("home",compact("theloai","product"));
-});
-Route::get('/home/{id}', function ($id) {
-    $theloai=DB::table('categories')->get();
 
-    $product=DB::table("books")
-    ->join("categories","books.Category_id","=","categories.id")->select("books.*","categories.name")
-    ->where("Category_id","=",$id)->get();
+Route::get("/listMovie",[MovieController::class, "list"])->name("listMovie");
+Route::post("/listMovie",[MovieController::class, "listPost"])->name("listPost");
 
-    return view("home",compact("theloai","product"));
-})->name("home");
+Route::get("/",[MovieController::class, "index"])->name("movie.index");
+Route::get("/home{id}",[MovieController::class, "movie_genre"])->name("home");
+Route::post("/home",[MovieController::class, "search"])->name("searchName");
 
-Route::get("/layout",function(){
-    $theloai=DB::table('categories')->get();
+Route::get("/movie-detail{id}",[MovieController::class, "movie_detail"])->name("movie-detail");
 
-    return view("layout",compact("theloai",));
-});
-
-Route::get("/book-detail/{id}",function($id){
-    $Book=DB::table('books')->where("id","=",$id)->get();
-    $theloai=DB::table('categories')->get();
-    return view("book-detail",compact("Book","theloai"));
-})->name("book-detail");
+Route::get("/post/create",[MovieController::class, "create"])->name("create");
+Route::post("/post/create",[MovieController::class, "store"])->name("store");
+Route::get("/post/edit/{phim}",[MovieController::class, "edit"])->name("edit");
+Route::put("/post/edit/{phim}",[MovieController::class, "update"])->name("update");
+Route::delete("/post/delete{phim}",[MovieController::class, "destroy"])->name("destroy");
