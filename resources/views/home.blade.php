@@ -11,10 +11,22 @@
     </div>
 
     <!-- Trang danh sách -->
-    <div class="list-container">
-        <h2>Thêm sửa xoá</h2>
-            <a href="{{ route('listMovie') }}" type="submit" class="list-item">CLICK ĐỂ THÊM SỬA XOÁ</a>
-    </div>
+    @if (Auth::check() && Auth::user()->role=="admin")
+        <div class="list-container">
+            <h2>Thêm sửa xoá</h2>
+                <tr>
+                    <td><a href="{{ route('listMovie') }}" type="submit" class="list-item">CLICK ĐỂ THÊM SỬA XOÁ</a></td>
+                    <td><a href="{{ route('thongke') }}" type="submit" class="list-item">CLICK ĐỂ XEM THỐNG KÊ</a></td>
+                </tr>
+        </div>
+    @endif
+    @if (Auth::check() && Auth::user()->role=="user")
+    <?php $name=Auth::user()?>
+        <div class="list-container">
+            <h2>Wellcome</h2>
+            <h4>Xin chào {{$name->fullname}}</h4>
+        </div>
+    @endif
 
     <!-- Trang Sản phẩm -->
     <div class="detail-container">

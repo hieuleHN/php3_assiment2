@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield("tile")</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <style>
         /* CSS cho trang chủ */
             body {
@@ -41,7 +42,6 @@
             }
             .list-item {
             padding: 10px;
-            border: 1px solid #706f6f;
             border-radius: 3px;
             text-align: center;
             text-decoration: none;
@@ -131,7 +131,7 @@
         <a href="/danh-sach">Sản phẩm</a>
         <a href="/chi-tiet/1">Hỏi đáp</a>
         <a href="/chi-tiet/1">Liên hệ</a>
-        <a href="/chi-tiet/1">Tài khoản</a>
+        <a href="{{ route('account') }}">Tài khoản</a>
     </nav>
     <article>
         <div class="box">

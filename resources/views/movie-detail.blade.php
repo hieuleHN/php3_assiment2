@@ -14,10 +14,10 @@
         <b>Ngày công chiếu:</b>
         <p>{{$detail->release_date}}</p>
 
-        <form action="" method="post">
-            @csrf
-            <button style="background-color: rgb(228, 44, 44); padding: 20px; color: white; font-size: 30px">đặt vé</button>
-        </form>
+        {{-- <form action="" method="post"> --}}
+            {{-- @csrf --}}
+            <button type="button" style="background-color: rgb(228, 44, 44); padding: 20px; color: white; font-size: 30px"><a href="{{ route('Tickets') }}" class="list-item">đặt vé</a></button>
+        {{-- </form> --}}
     </div>
 @endforeach
 @endsection
